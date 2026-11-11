@@ -6,7 +6,10 @@
 {% block wrapper %}
 <main class="app">
   <header class="top">
-    <a class="avatar avatar-lg" href="{{ url_for('index') }}" title="Kembali ke beranda" aria-label="Kembali ke beranda">{{ theme.avatar }}</a>
+    <a class="icon-btn" href="{{ url_for('index') }}" aria-label="Kembali ke beranda dan akhiri sesi" title="Kembali ke beranda (riwayat chat akan terhapus)">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <span class="avatar avatar-lg" aria-hidden="true">{{ theme.avatar }}</span>
     <div class="title">
       <h1>{{ theme.bot_name }}</h1>
       <p>{{ theme.name }}</p>

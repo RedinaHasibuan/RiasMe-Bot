@@ -9,7 +9,7 @@ import os
 import uuid
 from pathlib import Path
 
-from flask import Flask, abort, jsonify, render_template, request, session
+from flask import Flask, abort, jsonify, make_response, render_template, request, session
 
 from chatbot import ChatbotEngine, ChatHistory, load_themes
 
@@ -58,12 +58,20 @@ def create_app(config: dict | None = None) -> Flask:
     def index():
         # Hanya ada satu tema (RiasMe): tampilkan landing page dengan tombol menuju chat
         theme = next(iter(themes.values()))
-        return render_template("landing.html", theme=theme)
+        # Kembali ke beranda = sesi chat selesai: riwayat dan ingatan konteks dihapus otomatis
+        if "sid" in session:
+            history.clear(session["sid"], theme["id"])
+        session.pop(f"ctx_{theme['id']}", None)
+        resp = make_response(render_template("landing.html", theme=theme))
+        resp.headers["Cache-Control"] = "no-store"   # tombol Back browser tidak memakai halaman lama dari cache
+        return resp
 
     @app.route("/chat/<theme_id>")
     def chat_page(theme_id):
         theme = get_theme_or_404(theme_id)
-        return render_template("chat.html", theme=theme)
+        resp = make_response(render_template("chat.html", theme=theme))
+        resp.headers["Cache-Control"] = "no-store"
+        return resp
 
     @app.route("/admin/<theme_id>")
     def admin_page(theme_id):
