@@ -91,7 +91,8 @@
         "buru-buru",
         "makeup ke kampus",
         "kesiangan mau makeup",
-        "makeup 5 menit"
+        "makeup 5 menit",
+        "Makeup sederhana untuk ke kampus"
       ],
       "responses": [
         "Cukup sunscreen, cushion tipis, alis, dan lip tint (bisa juga ditepuk ke pipi sebagai blush). Selesai kurang dari 5 menit.",
@@ -113,11 +114,12 @@
         "bagaimana mengetahui tipe kulit",
         "kulit wajahku tipe apa",
         "cara membedakan kulit kering dan dehidrasi",
-        "ciri ciri kulit berminyak"
+        "ciri ciri kulit berminyak",
+        "Bagaimana cara mengenali jenis kulit?"
       ],
       "responses": [
-        "Cuci muka, keringkan, jangan pakai produk apa pun, tunggu 30-60 menit. Mengilap di seluruh wajah = berminyak; kencang atau bersisik = kering; hanya dahi, hidung, dagu mengilap = kombinasi; nyaman dan seimbang = normal.",
-        "Tempel kertas minyak di dahi, hidung, pipi, dan dagu. Minyak banyak di semua area = berminyak; hampir tidak ada = kering; banyak hanya di dahi dan hidung = kombinasi; sedikit = normal.",
+        "Cara cek jenis kulit:\n1. Cuci muka\n2. Keringkan\n3. Jangan pakai produk apa pun\n4. Tunggu 30-60 menit\nLalu lihat hasilnya:\n• Mengilap di seluruh wajah: berminyak\n• Kencang atau bersisik: kering\n• Hanya dahi, hidung, dagu mengilap: kombinasi\n• Nyaman dan seimbang: normal",
+        "Cara cek jenis kulit:\n1. Tempel kertas minyak di dahi\n2. Hidung\n3. Pipi\n4. Dan dagu\nLalu lihat hasilnya:\n• Minyak banyak di semua area: berminyak\n• Hampir tidak ada: kering\n• Banyak hanya di dahi dan hidung: kombinasi\n• Sedikit: normal",
         "Cara sederhana mengenali jenis kulit: bersihkan wajah dengan pembersih lembut, keringkan dengan menepuk handuk, lalu biarkan tanpa skincare selama sekitar 30–60 menit. Jika sebagian besar wajah tampak mengilap, kulit mungkin berminyak. Jika terasa kencang atau tampak bersisik, mungkin kering. Jika dahi, hidung, dan dagu lebih berminyak sementara pipi terasa normal atau kering, mungkin kombinasi. Jika terasa nyaman dan tidak terlalu berminyak atau kering, mungkin normal. Hasil dapat berubah karena cuaca, hormon, dan produk yang digunakan.",
         "Jenis kulit berbeda dengan kondisi kulit sementara. Kulit dehidrasi, misalnya, dapat terasa kencang meskipun menghasilkan minyak. Amati kondisi kulit selama beberapa hari, bukan hanya sekali. Jika muncul iritasi, rasa terbakar, atau keluhan yang menetap, hentikan produk yang dicurigai dan konsultasikan dengan tenaga kesehatan."
       ]
@@ -134,7 +136,8 @@
         "langkah langkah makeup",
         "urutan make up lengkap",
         "makeup dari skincare sampai selesai",
-        "step by step makeup"
+        "step by step makeup",
+        "Urutan makeup lengkap untuk pemula"
       ],
       "responses": [
         "Urutan makeup untuk pemula:\n1. Skincare dan sunscreen\n2. Primer\n3. Foundation atau cushion\n4. Concealer\n5. Bedak\n6. Alis\n7. Mata\n8. Blush\n9. Lip\n10. Setting spray\nAturan emasnya: krim sebelum bubuk. Sebutkan jenis kulitmu untuk urutan yang lebih tepat!",
@@ -303,7 +306,10 @@
         "mending cushion atau foundation",
         "perbedaan cushion dan foundation",
         "cushion vs foundation",
-        "bedanya cushion sama foundation"
+        "bedanya cushion sama foundation",
+        "Cushion atau foundation, mana yang lebih cocok?",
+        "mana yang lebih bagus cushion atau foundation",
+        "cushion atau foundation mana yang lebih baik"
       ],
       "responses": [
         "Cushion praktis dan ringan, cocok untuk pemula dan pemakaian harian. Foundation cair biasanya coverage-nya lebih tinggi.",
