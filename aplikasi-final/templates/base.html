@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}RiasMe &middot; Panduan Makeup Pemula{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="{% block body_class %}page{% endblock %}">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-kuas" viewBox="0 0 64 64"><rect x="28" y="28" width="8" height="34" rx="4" fill="#8b5e4b"/><rect x="25" y="18" width="14" height="13" rx="3" fill="#7fb08a"/><path d="M25 19C23 9 29 2 32 2s9 7 7 17z" fill="#f4a3bb"/></symbol>
+    <symbol id="i-lipstik" viewBox="0 0 64 64"><rect x="20" y="36" width="24" height="24" rx="4" fill="#8b5e4b"/><rect x="22" y="28" width="20" height="10" rx="2" fill="#cfe5c9"/><path d="M25 28V14l7-9 7 7v16z" fill="#d9577e"/></symbol>
+    <symbol id="i-cushion" viewBox="0 0 64 64"><rect x="5" y="12" width="54" height="44" rx="16" fill="#f4a3bb"/><rect x="24" y="8" width="16" height="8" rx="4" fill="#7fb08a"/><ellipse cx="32" cy="36" rx="19" ry="14" fill="#fff1f5"/><circle cx="32" cy="36" r="9" fill="#f9c9d8"/></symbol>
+    <symbol id="i-palet" viewBox="0 0 64 64"><rect x="3" y="10" width="58" height="44" rx="12" fill="#c9a99a"/><circle cx="18" cy="26" r="7" fill="#f4a3bb"/><circle cx="32" cy="26" r="7" fill="#cfe5c9"/><circle cx="46" cy="26" r="7" fill="#d9577e"/><circle cx="18" cy="42" r="7" fill="#7fb08a"/><circle cx="32" cy="42" r="7" fill="#fff1f5"/><circle cx="46" cy="42" r="7" fill="#8b5e4b"/></symbol>
+    <symbol id="i-kilau" viewBox="0 0 64 64"><path d="M32 4c2 18 10 26 28 28-18 2-26 10-28 28-2-18-10-26-28-28C22 30 30 22 32 4z" fill="#f8bcd0"/></symbol>
+  </svg>
+  {% block wrapper %}<main class="sheet">{% block content %}{% endblock %}</main>{% endblock %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

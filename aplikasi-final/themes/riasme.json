@@ -1,0 +1,920 @@
+{
+  "id": "riasme",
+  "name": "Panduan Makeup Pemula",
+  "bot_name": "RiasMe",
+  "avatar": "💄",
+  "color": "#db2777",
+  "description": "Chatbot edukasi makeup untuk mahasiswa dan pemula. RiasMe membantu pengguna mengenali jenis dan kebutuhan kulit, menyiapkan kulit sebelum makeup, memilih tekstur produk, memahami urutan dan teknik aplikasi, menyusun perlengkapan sesuai prioritas, serta menangani masalah makeup sehari-hari. Jawaban bersifat edukatif dan tidak menggantikan saran dokter kulit atau tenaga kesehatan.",
+  "greeting": "Halo! Aku RiasMe 💄, teman belajar makeup untuk pemula. Kamu bisa bertanya tentang jenis kulit, skin prep, urutan makeup, pemilihan produk, teknik aplikasi, makeup untuk kuliah atau acara, sampai solusi masalah seperti cakey, patchy, dan makeup cepat luntur. Ceritakan kebutuhanmu, ya!",
+  "suggestions": [
+    "Bagaimana cara mengenali jenis kulit?",
+    "Urutan makeup lengkap untuk pemula",
+    "Makeup sederhana untuk ke kampus",
+    "Cushion atau foundation, mana yang lebih cocok?"
+  ],
+  "fallback": [
+    "Maaf, aku belum menangkap maksud pertanyaanmu. Kamu bisa bertanya tentang jenis kulit, skin prep, urutan makeup, cushion, foundation, concealer, bedak, blush, alis, mata, bibir, atau masalah makeup.",
+    "Aku belum menemukan topik yang cocok. Coba ceritakan lebih spesifik, misalnya: 'kulitku kombinasi, bagaimana urutan makeup?', 'foundation sering patchy', atau 'bagaimana membersihkan spons makeup?'.",
+    "Sepertinya pertanyaanmu belum sesuai dengan materi yang kupahami. Aku bisa membantu seputar makeup pemula, pemilihan produk berdasarkan kebutuhan kulit, teknik aplikasi, kebersihan alat, dan troubleshooting."
+  ],
+  "intents": [
+    {
+      "tag": "salam",
+      "patterns": [
+        "halo",
+        "hai kak",
+        "selamat pagi",
+        "assalamualaikum",
+        "halo bot",
+        "selamat siang",
+        "selamat malam",
+        "permisi",
+        "boleh tanya"
+      ],
+      "responses": [
+        "Halo! Aku {nama_bot}. Tanya soal makeup yang cocok untuk kulit berminyak, kering, kombinasi, atau normal, ya.",
+        "Hai! Aku {nama_bot}, teman memilih makeup sesuai jenis kulitmu. Mau mulai dari cek jenis kulit atau urutan makeup?"
+      ]
+    },
+    {
+      "tag": "perkenalan_bot",
+      "patterns": [
+        "kamu siapa",
+        "bot apa ini",
+        "kamu bisa bantu apa",
+        "ini bot buat apa",
+        "fungsi kamu apa"
+      ],
+      "responses": [
+        "Aku {nama_bot}, bot yang membantu memilih produk makeup dan urutan pakainya sesuai jenis kulit. Aku bukan pengganti dokter kulit, ya.",
+        "Aku {nama_bot}. Aku bisa bantu cek jenis kulit, urutan makeup, dan pilihan primer sampai setting spray yang cocok untukmu."
+      ]
+    },
+    {
+      "tag": "terima_kasih",
+      "patterns": [
+        "makasih",
+        "terima kasih",
+        "thanks",
+        "oke sip",
+        "makasih ya bot",
+        "makasih banyak"
+      ],
+      "responses": [
+        "Sama-sama! Semoga makeup-mu awet dan kulitmu nyaman seharian.",
+        "Senang bisa bantu! Kalau mau lanjut, tanya urutan makeup atau produk lainnya, ya."
+      ]
+    },
+    {
+      "tag": "budget_makeup_pemula",
+      "patterns": [
+        "makeup murah",
+        "budget terbatas",
+        "prioritas beli",
+        "makeup hemat mahasiswa",
+        "uang saku terbatas",
+        "makeup anak kos",
+        "uang saku pas pasan"
+      ],
+      "responses": [
+        "Prioritaskan sunscreen, cushion, lip tint, dan maskara. Blush dan pensil alis bisa menyusul. Banyak merek lokal murah dan bagus.",
+        "Kalau budget minim, utamakan base (cushion/foundation) dan produk multifungsi seperti lip tint untuk bibir sekaligus pipi!",
+        "Kalau dana terbatas, susun pembelian berdasarkan kebutuhan. Mulai dari sunscreen untuk perlindungan kulit pada siang hari, satu produk base seperti cushion atau foundation jika memang ingin meratakan tampilan, bedak bila diperlukan, serta produk bibir. Pensil alis, blush, maskara, dan eyeshadow bisa dibeli bertahap. Tidak perlu membeli semua produk sekaligus.",
+        "Buat daftar sebelum belanja:\n1. Produk yang benar-benar dibutuhkan\n2. Produk yang sudah dimiliki dan masih layak digunakan\n3. Produk tambahan yang bisa ditunda\nPilih produk multifungsi, misalnya lip tint yang juga dapat digunakan sebagai blush jika formulanya memang nyaman untuk kedua area. Periksa ukuran, masa kedaluwarsa, dan kebersihan aplikator."
+      ]
+    },
+    {
+      "tag": "makeup_kuliah_cepat",
+      "patterns": [
+        "makeup simple kuliah",
+        "makeup cepat",
+        "buru-buru",
+        "makeup ke kampus",
+        "kesiangan mau makeup",
+        "makeup 5 menit"
+      ],
+      "responses": [
+        "Cukup sunscreen, cushion tipis, alis, dan lip tint (bisa juga ditepuk ke pipi sebagai blush). Selesai kurang dari 5 menit.",
+        "Kesiangan? Pakai sunscreen, bedak tabur biar wajah tidak kusam, sikat alis, lalu pakai lip tint. Cepat dan segar untuk ngampus!",
+        "Untuk makeup kampus yang praktis, gunakan urutan: skincare ringan, sunscreen, tunggu hingga meresap, lalu cushion tipis jika ingin meratakan tampilan. Rapikan alis, tambahkan lip tint, dan gunakan sedikit blush bila ada waktu. Pilih hasil yang nyaman dan tidak terasa berat selama beraktivitas.",
+        "Rutinitas singkat sekitar lima menit bisa dibuat dengan menyiapkan produk yang paling sering dipakai sejak awal. Jangan melewatkan sunscreen pada pagi atau siang hari. Jika tidak ingin memakai base, cukup gunakan skincare, sunscreen, rapikan alis, dan produk bibir."
+      ]
+    },
+    {
+      "tag": "kenali_jenis_kulit",
+      "patterns": [
+        "cara tahu jenis kulit",
+        "kulit aku termasuk jenis apa",
+        "gimana cara cek kulit berminyak atau kering",
+        "ciri kulit kombinasi",
+        "ciri kulit normal itu gimana",
+        "cek jenis kulit",
+        "tes jenis kulit wajah sendiri",
+        "bagaimana mengetahui tipe kulit",
+        "kulit wajahku tipe apa",
+        "cara membedakan kulit kering dan dehidrasi",
+        "ciri ciri kulit berminyak"
+      ],
+      "responses": [
+        "Cuci muka, keringkan, jangan pakai produk apa pun, tunggu 30-60 menit. Mengilap di seluruh wajah = berminyak; kencang atau bersisik = kering; hanya dahi, hidung, dagu mengilap = kombinasi; nyaman dan seimbang = normal.",
+        "Tempel kertas minyak di dahi, hidung, pipi, dan dagu. Minyak banyak di semua area = berminyak; hampir tidak ada = kering; banyak hanya di dahi dan hidung = kombinasi; sedikit = normal.",
+        "Cara sederhana mengenali jenis kulit: bersihkan wajah dengan pembersih lembut, keringkan dengan menepuk handuk, lalu biarkan tanpa skincare selama sekitar 30–60 menit. Jika sebagian besar wajah tampak mengilap, kulit mungkin berminyak. Jika terasa kencang atau tampak bersisik, mungkin kering. Jika dahi, hidung, dan dagu lebih berminyak sementara pipi terasa normal atau kering, mungkin kombinasi. Jika terasa nyaman dan tidak terlalu berminyak atau kering, mungkin normal. Hasil dapat berubah karena cuaca, hormon, dan produk yang digunakan.",
+        "Jenis kulit berbeda dengan kondisi kulit sementara. Kulit dehidrasi, misalnya, dapat terasa kencang meskipun menghasilkan minyak. Amati kondisi kulit selama beberapa hari, bukan hanya sekali. Jika muncul iritasi, rasa terbakar, atau keluhan yang menetap, hentikan produk yang dicurigai dan konsultasikan dengan tenaga kesehatan."
+      ]
+    },
+    {
+      "tag": "urutan_makeup_umum",
+      "patterns": [
+        "urutan makeup",
+        "step makeup yang benar",
+        "makeup mulai dari mana",
+        "urutan pakai makeup dari awal",
+        "yang dipakai duluan apa",
+        "tutorial makeup untuk pemula",
+        "langkah langkah makeup",
+        "urutan make up lengkap",
+        "makeup dari skincare sampai selesai",
+        "step by step makeup"
+      ],
+      "responses": [
+        "Urutan makeup untuk pemula:\n1. Skincare dan sunscreen\n2. Primer\n3. Foundation atau cushion\n4. Concealer\n5. Bedak\n6. Alis\n7. Mata\n8. Blush\n9. Lip\n10. Setting spray\nAturan emasnya: krim sebelum bubuk. Sebutkan jenis kulitmu untuk urutan yang lebih tepat!",
+        "Urutan makeup untuk pemula:\n1. Mulai dari kulit yang lembap\n2. Lanjut base makeup\n3. Alis\n4. Mata\n5. Blush\n6. Lip\n7. Kunci dengan setting spray\nMau urutan khusus untuk jenis kulitmu?",
+        "Urutan dasar makeup pemula:\n1. Bersihkan wajah\n2. Pelembap\n3. Sunscreen pada pagi/siang hari\n4. Primer bila diperlukan\n5. Foundation atau cushion\n6. Concealer\n7. Produk krim seperti cream blush\n8. Bedak\n9. Produk bubuk seperti powder blush atau bronzer\n10. Alis dan riasan mata\n11. Produk bibir\n12. Setting spray bila digunakan\nUrutan dapat disesuaikan dengan kebiasaan dan jenis produk.",
+        "Pegang prinsip umum: skincare dan sunscreen terlebih dahulu, kemudian base makeup. Produk bertekstur krim atau cair biasanya digunakan sebelum produk bubuk agar lebih mudah dibaurkan. Namun, selalu ikuti petunjuk produk karena beberapa formula memiliki cara penggunaan khusus. Tidak semua langkah wajib dilakukan setiap hari."
+      ]
+    },
+    {
+      "tag": "urutan_kulit_berminyak",
+      "patterns": [
+        "urutan makeup kulit berminyak",
+        "step makeup untuk muka berminyak",
+        "makeup muka berminyak mulai dari mana",
+        "muka aku berminyak urutan makeupnya gimana",
+        "urutan makeup wajah berminyak"
+      ],
+      "responses": [
+        "Urutan makeup untuk kulit berminyak:\n1. Pelembap gel + sunscreen ringan (tunggu 5 menit)\n2. Primer mattifying di T-zone\n3. Foundation oil-free tipis\n4. Concealer\n5. Loose powder di T-zone\n6. Alis dan mata (produk waterproof)\n7. Blush bubuk\n8. Lip\n9. Setting spray matte",
+        "Skincare ringan, primer pori, base tipis, bedak tabur di T-zone, mata dan pipi dengan produk bubuk, lip, lalu setting spray matte. Bawa kertas minyak untuk touch-up.",
+        "Untuk kulit berminyak, mulai dengan pembersih lembut, pelembap gel atau lotion ringan, lalu sunscreen yang nyaman. Setelah meresap, gunakan primer mattifying hanya pada area yang cepat mengilap seperti dahi, hidung, dan dagu. Aplikasikan foundation atau cushion tipis secara bertahap, gunakan concealer hanya pada area yang perlu, lalu set area T-zone dengan loose powder. Akhiri dengan setting spray sesuai kebutuhan.",
+        "Hindari menumpuk terlalu banyak produk untuk menghilangkan minyak karena dapat membuat base terlihat berat. Saat touch-up, tekan minyak menggunakan blotting paper atau tisu bersih secara perlahan, kemudian tambahkan bedak tipis jika diperlukan. Kulit berminyak tetap membutuhkan pelembap."
+      ]
+    },
+    {
+      "tag": "urutan_kulit_kering",
+      "patterns": [
+        "urutan makeup kulit kering",
+        "step makeup untuk muka kering",
+        "makeup muka kering mulai dari mana",
+        "muka aku kering urutan makeupnya gimana",
+        "urutan makeup wajah kering"
+      ],
+      "responses": [
+        "Urutan makeup untuk kulit kering:\n1. Toner atau essence hydrating\n2. Pelembap krim\n3. Sunscreen (tunggu 5-10 menit)\n4. Primer hydrating\n5. Foundation dewy tipis\n6. Concealer krim\n7. Blush krim\n8. Bedak sangat tipis di T-zone\n9. Alis\n10. Mata\n11. Lip (balm dulu)\n12. Setting spray hydrating",
+        "Lembapkan dulu sampai meresap, pakai base dewy tipis, produk krim sebelum bedak, bedak seperlunya, tutup dengan setting spray hydrating. Kalau terasa kering, semprot face mist.",
+        "Untuk kulit kering, fokus pada persiapan kulit yang nyaman. Bersihkan wajah dengan lembut, gunakan pelembap yang terasa cukup melembapkan, lalu sunscreen pada pagi/siang hari. Tunggu hingga lapisan skincare meresap. Pilih primer hydrating bila diperlukan, base dengan hasil satin atau dewy, dan concealer secukupnya. Cream blush dapat digunakan sebelum bedak. Gunakan bedak tipis hanya pada area yang mudah bergeser.",
+        "Jangan mengaplikasikan terlalu banyak lapisan sekaligus. Jika ada bagian yang mengelupas, hindari menggosoknya dengan spons. Pastikan skincare sudah meresap dan aplikasikan base dengan cara ditepuk ringan. Jika kulit terasa perih atau iritasi, utamakan kenyamanan kulit dan hentikan produk yang memicu keluhan."
+      ]
+    },
+    {
+      "tag": "urutan_kulit_kombinasi",
+      "patterns": [
+        "urutan makeup kulit kombinasi",
+        "step makeup untuk muka kombinasi",
+        "makeup muka kombinasi mulai dari mana",
+        "muka aku kombinasi urutan makeupnya gimana",
+        "urutan makeup wajah kombinasi"
+      ],
+      "responses": [
+        "Urutan makeup untuk kulit kombinasi:\n1. Gel-krim ringan (lebih banyak di pipi) + sunscreen\n2. Primer mattifying di T-zone dan hydrating di pipi\n3. Foundation semi-matte tipis\n4. Concealer\n5. Blush krim\n6. Bedak hanya di T-zone\n7. Mata\n8. Lip\n9. Setting spray satin",
+        "Mulai dari skincare dan sunscreen, lalu perlakukan per area: T-zone dikontrol (primer matte, bedak), pipi dilembapkan (primer hydrating, produk krim). Tutup dengan setting spray satin.",
+        "Kulit kombinasi dapat diperlakukan berbeda pada setiap area. Gunakan pelembap ringan di seluruh wajah, lalu tambahkan sedikit lebih banyak pada area pipi yang terasa kering. Setelah sunscreen meresap, aplikasikan primer mattifying di T-zone dan primer hydrating di pipi jika memang dibutuhkan. Gunakan base tipis dengan hasil satin atau semi-matte, lalu bedak seperlunya di area yang mudah berminyak.",
+        "Tidak harus memakai dua primer. Jika satu primer sudah nyaman di seluruh wajah, gunakan satu saja. Kuncinya adalah mengatur jumlah produk berdasarkan kondisi setiap area, bukan membuat seluruh wajah terasa sangat matte."
+      ]
+    },
+    {
+      "tag": "urutan_kulit_normal",
+      "patterns": [
+        "urutan makeup kulit normal",
+        "step makeup untuk muka normal",
+        "makeup muka normal mulai dari mana",
+        "muka aku normal urutan makeupnya gimana",
+        "urutan makeup wajah normal"
+      ],
+      "responses": [
+        "Urutan makeup untuk kulit normal:\n1. Pelembap ringan + sunscreen\n2. Primer (opsional)\n3. Foundation atau cushion tipis\n4. Concealer\n5. Bedak tipis\n6. Alis\n7. Mata\n8. Blush\n9. Lip\n10. Setting spray (opsional)\nBlush krim dipakai sebelum bedak, blush bubuk sesudahnya.",
+        "Kulit normal paling fleksibel: skincare ringan, base tipis, bedak seperlunya, lalu mata, pipi, bibir. Pilih finish matte atau dewy sesuai acara.",
+        "Kulit normal cukup menggunakan rutinitas sederhana: pelembap ringan, sunscreen pada pagi/siang hari, primer opsional, cushion atau foundation tipis, concealer bila diperlukan, bedak seperlunya, kemudian riasan alis, mata, pipi, dan bibir. Pilih hasil matte, satin, atau dewy sesuai kenyamanan dan kebutuhan acara.",
+        "Walaupun kulit terasa seimbang, tetap perhatikan kecocokan produk dan kebersihan alat. Tidak semua langkah harus dipakai setiap hari. Untuk aktivitas kampus, base tipis dan produk yang mudah diperbaiki biasanya sudah cukup."
+      ]
+    },
+    {
+      "tag": "alat_makeup_dasar",
+      "patterns": [
+        "alat makeup apa saja",
+        "perlengkapan pemula",
+        "mau mulai makeup beli apa",
+        "alat makeup dasar",
+        "daftar perlengkapan makeup pemula",
+        "wajib punya makeup apa",
+        "makeup starter kit",
+        "produk makeup pertama untuk pemula",
+        "makeup wajib untuk mahasiswa",
+        "peralatan makeup sederhana",
+        "barang yang harus dibeli untuk belajar makeup"
+      ],
+      "responses": [
+        "Untuk pemula cukup: sunscreen, cushion atau foundation, concealer, bedak, blush, lip tint, maskara, pensil alis, plus spons/brush.",
+        "Tidak perlu beli semua! Mulai dari cushion, bedak, pensil alis, dan lip tint. Alatnya bisa cukup mengandalkan jari manis atau spons/puff bawaan.",
+        "Starter kit yang sederhana dapat terdiri dari sunscreen, pelembap, cushion atau foundation (pilih salah satu), concealer opsional, bedak, pensil alis, blush, dan produk bibir. Untuk alat, siapkan puff atau spons, satu atau dua brush sesuai kebutuhan, penjepit bulu mata jika digunakan, serta tempat penyimpanan yang bersih. Mulailah dari produk yang paling sering dipakai.",
+        "Bedakan produk makeup dan alat makeup. Produk adalah bahan yang diaplikasikan ke wajah, sedangkan alat membantu meratakan atau membaurkan produk. Bersihkan puff dan brush secara teratur, keringkan sepenuhnya sebelum disimpan, dan jangan berbagi produk atau alat yang bersentuhan langsung dengan mata dan bibir."
+      ]
+    },
+    {
+      "tag": "skin_prep",
+      "patterns": [
+        "skincare sebelum makeup",
+        "pelembap apa sebelum makeup",
+        "sunscreen buat kulit berminyak",
+        "skin prep untuk kulit kering",
+        "persiapan kulit sebelum makeup",
+        "persiapan wajah sebelum foundation",
+        "skin preparation makeup",
+        "berapa lama menunggu skincare sebelum makeup",
+        "pelembap dan sunscreen sebelum makeup",
+        "kenapa skincare menggumpal"
+      ],
+      "responses": [
+        "Berminyak: pelembap gel dan sunscreen ringan (oil-free). Kering: pelembap krim (cari hyaluronic acid atau ceramide) dan sunscreen yang melembapkan. Kombinasi: gel-krim ringan, lebih banyak di pipi. Normal: pelembap ringan. Tunggu sampai meresap.",
+        "Jangan skip pelembap, termasuk di kulit berminyak: pilih yang ringan. Setelah pelembap dan sunscreen, tunggu meresap sebelum primer atau foundation supaya tidak cakey.",
+        "Skin prep bertujuan membuat kulit terasa nyaman sebelum makeup, bukan membuat banyak lapisan skincare. Urutannya: bersihkan wajah, gunakan pelembap yang sesuai, lalu sunscreen pada pagi/siang hari. Tunggu setiap lapisan meresap sebelum menambahkan produk berikutnya. Jika produk menggumpal atau pilling, coba kurangi jumlah lapisan dan beri jeda lebih lama.",
+        "Kulit berminyak tetap memerlukan pelembap; pilih tekstur ringan jika lebih nyaman. Kulit kering dapat memilih pelembap yang lebih kaya. Gunakan sunscreen sesuai petunjuk label dan aplikasikan kembali sesuai kebutuhan, terutama setelah berkeringat atau beraktivitas di luar ruangan."
+      ]
+    },
+    {
+      "tag": "primer",
+      "patterns": [
+        "primer untuk kulit berminyak",
+        "primer apa yang cocok buat kulit kering",
+        "perlu primer ga",
+        "primer buat kulit kombinasi",
+        "fungsi primer apa",
+        "primer itu untuk apa",
+        "cara menggunakan primer",
+        "primer dipakai sebelum apa",
+        "primer membuat makeup tahan lama",
+        "primer untuk pori pori besar"
+      ],
+      "responses": [
+        "Berminyak: primer mattifying atau pore-blurring di T-zone. Kering: primer hydrating atau glowing, hindari yang matte. Kombinasi: mattifying di T-zone, hydrating di pipi. Normal: opsional.",
+        "Primer membantu makeup lebih awet dan rata. Kulit berminyak pilih yang mengontrol minyak, kulit kering pilih yang melembapkan, kulit kombinasi boleh pakai dua jenis.",
+        "Primer bukan produk wajib. Fungsinya membantu menyiapkan permukaan kulit dan dapat membantu tampilan makeup sesuai kebutuhan formula. Primer mattifying atau pore-blurring biasanya digunakan pada area yang cepat berminyak atau tampak berpori. Primer hydrating dapat terasa lebih nyaman pada area kering. Gunakan sedikit saja setelah skincare dan sunscreen meresap.",
+        "Jika makeup sudah menempel baik tanpa primer, kamu boleh melewatkannya. Hindari menumpuk primer terlalu banyak karena dapat membuat base menggumpal atau sulit dibaurkan. Perhatikan petunjuk produk dan kecocokannya dengan skincare atau foundation yang digunakan."
+      ]
+    },
+    {
+      "tag": "foundation_cushion",
+      "patterns": [
+        "foundation untuk kulit berminyak",
+        "cushion yang cocok buat kulit kering",
+        "foundation kulit kombinasi",
+        "pilih foundation sesuai jenis kulit",
+        "foundation untuk kulit normal",
+        "cushion kulit berminyak",
+        "base makeup untuk pemula",
+        "foundation yang tidak berat",
+        "cushion untuk sehari hari",
+        "hasil akhir foundation",
+        "pilih base makeup sesuai tipe kulit",
+        "rekomendasi foundation yang bagus",
+        "foundation yang bagus",
+        "foundation untuk pemula"
+      ],
+      "responses": [
+        "Berminyak: oil-free, finish matte atau semi-matte. Kering: formula hydrating, finish dewy atau satin, hindari full matte. Kombinasi: semi-matte atau satin. Normal: bebas. Pakai tipis-tipis.",
+        "Cushion biasanya lebih ringan dan praktis, foundation cair lebih fleksibel untuk dilapis. Kulit berminyak cari label oil-free dan long-wear; kulit kering cari hydrating atau luminous.",
+        "Pilih base berdasarkan kebutuhan hasil akhir dan kenyamanan. Kulit yang mudah berminyak sering lebih nyaman dengan formula ringan berlabel oil-control atau hasil matte/semi-matte. Kulit kering dapat mencoba formula hydrating dengan hasil satin atau dewy. Kulit kombinasi dapat memilih hasil satin atau semi-matte. Apa pun jenis kulitnya, aplikasikan sedikit dahulu lalu tambah hanya pada area yang membutuhkan coverage.",
+        "Periksa kecocokan warna di area rahang menuju leher dalam cahaya alami. Selain shade, pertimbangkan tingkat coverage, hasil akhir, kenyamanan, dan apakah produk mudah dibaurkan. Jika memungkinkan, coba sampel sebelum membeli ukuran penuh."
+      ]
+    },
+    {
+      "tag": "beda_foundie_cushion",
+      "patterns": [
+        "beda foundation dan cushion",
+        "mending cushion atau foundation",
+        "perbedaan cushion dan foundation",
+        "cushion vs foundation",
+        "bedanya cushion sama foundation"
+      ],
+      "responses": [
+        "Cushion praktis dan ringan, cocok untuk pemula dan pemakaian harian. Foundation cair biasanya coverage-nya lebih tinggi.",
+        "Kalau mau cepat tanpa alat tambahan, pilih cushion (sudah termasuk puff). Foundation lebih awet untuk di-layer di acara seharian."
+      ]
+    },
+    {
+      "tag": "cara_pilih_shade",
+      "patterns": [
+        "cara pilih shade",
+        "warna foundation",
+        "shade foundation",
+        "cara tahu shade yang cocok",
+        "shade cushion yang pas",
+        "tes shade di mana",
+        "cara menentukan warna cushion",
+        "undertone untuk memilih foundation",
+        "foundation terlalu terang bagaimana",
+        "shade leher dan wajah berbeda",
+        "cara memilih warna bedak",
+        "foundation yang cocok",
+        "foundation yang cocok dengan warna kulit",
+        "pilih foundation yang cocok"
+      ],
+      "responses": [
+        "Tes di garis rahang atau leher, bukan punggung tangan. Pilih yang menyatu dengan kulit, lalu cek di bawah cahaya alami.",
+        "Hindari menebak dari punggung tangan! Oleskan sedikit di rahang, usap sedikit. Kalau warnanya 'hilang' membaur dengan leher, itu shade-mu.",
+        "Uji shade pada garis rahang dan lihat apakah warnanya menyatu dengan wajah serta leher. Periksa di cahaya alami, bukan hanya lampu toko atau kamera. Beri waktu beberapa menit untuk melihat apakah warna berubah setelah produk mengering. Jangan menentukan shade hanya dari warna punggung tangan karena warna area tersebut bisa berbeda dari wajah.",
+        "Undertone umumnya digambarkan sebagai warm, cool, atau neutral. Warm sering tampak lebih kekuningan atau keemasan, cool cenderung merah muda atau kebiruan, sedangkan neutral berada di antara keduanya. Ini hanya panduan awal; hasil terbaik tetap ditentukan melalui uji langsung pada wajah dan leher."
+      ]
+    },
+    {
+      "tag": "concealer_cara_pakai",
+      "patterns": [
+        "concealer untuk kulit kering",
+        "concealer kulit berminyak",
+        "concealer yang tidak masuk garis",
+        "concealer bawah mata kering",
+        "pilih concealer sesuai jenis kulit",
+        "cara pakai concealer",
+        "cara menutupi bekas jerawat",
+        "concealer untuk noda hitam",
+        "warna concealer yang tepat",
+        "concealer dulu atau foundation dulu",
+        "cara blend concealer",
+        "concealer yang bagus",
+        "rekomendasi concealer yang bagus",
+        "concealer apa yang cocok",
+        "pilih concealer"
+      ],
+      "responses": [
+        "Totol secukupnya di area noda/mata panda, lalu tepuk dengan jari atau spons (jangan digosok). Berminyak: cair ringan, semi-matte, set dengan bedak tipis. Kering: cair atau krim yang melembabkan, pakai eye cream tipis dulu. Kombinasi: hydrating di bawah mata, matte untuk T-zone atau jerawat. Normal: bebas.",
+        "Area bawah mata cenderung lebih kering, jadi pilih yang melembabkan dan pakai secukupnya supaya tidak masuk ke garis halus, atau pakai eye cream tipis dulu supaya concealer tidak masuk ke garis halus. Blend dengan cara di-tap tap perlahan. Di kulit berminyak, set dengan bedak sedikit saja.",
+        "Gunakan concealer setelah base atau sebelum bedak. Ambil sedikit produk dan letakkan hanya pada area yang ingin disamarkan, misalnya noda atau area bawah mata. Tepuk perlahan dengan jari bersih atau spons, jangan digosok. Tambahkan lapisan tipis jika coverage belum cukup, lalu set dengan bedak sedikit bila diperlukan.",
+        "Untuk bawah mata, pilih tekstur yang terasa nyaman dan tidak terlalu kering. Untuk noda di wajah, pilih shade yang mendekati warna kulit. Concealer yang terlalu terang dapat membuat area tertentu tampak abu-abu. Jangan mengaplikasikan produk terlalu tebal karena dapat berkumpul pada garis halus."
+      ]
+    },
+    {
+      "tag": "loose_powder",
+      "patterns": [
+        "loose powder untuk kulit berminyak",
+        "bedak tabur buat kulit kering",
+        "perlu pakai bedak ga",
+        "bedak apa yang cocok kulit kombinasi",
+        "bedak tabur cara pakainya gimana",
+        "cara baking makeup",
+        "bedak membuat makeup crack",
+        "compact powder atau loose powder",
+        "bedak setelah cushion",
+        "cara agar bedak tidak terlihat tebal"
+      ],
+      "responses": [
+        "Berminyak: loose powder translucent di T-zone, tepuk dengan puff, jangan disapu. Kering: sangat tipis atau lewati. Kombinasi: T-zone saja. Normal: tipis jika ingin lebih awet.",
+        "Bedak tabur mengunci base dan menyerap minyak. Kulit berminyak paling diuntungkan; kulit kering sebaiknya hemat dan pilih yang halus (finely milled).",
+        "Loose powder membantu mengurangi kilap dan mengunci sebagian base makeup. Ambil sedikit produk, ketuk kelebihan bedak dari puff atau brush, lalu tekan perlahan pada area yang dibutuhkan. Kulit berminyak dapat memprioritaskan T-zone; kulit kering cukup menggunakan sedikit atau melewatkannya pada area yang mudah mengelupas.",
+        "Bedak tabur dan bedak padat sama-sama dapat digunakan untuk merapikan makeup. Bedak tabur biasanya praktis untuk mengunci base, sedangkan bedak padat lebih mudah dibawa untuk touch-up. Pilih berdasarkan kebutuhan, bukan karena semua jenis bedak harus digunakan bersamaan."
+      ]
+    },
+    {
+      "tag": "blush_bronzer_cara_pakai",
+      "patterns": [
+        "blush untuk kulit berminyak",
+        "blush krim atau bubuk",
+        "highlighter buat kulit kering",
+        "blush yang tahan lama",
+        "bronzer untuk kulit berminyak",
+        "cara pakai blush",
+        "letak blush",
+        "cara memakai bronzer",
+        "cara memakai highlighter",
+        "blush sebelum atau sesudah bedak",
+        "blush untuk makeup natural",
+        "perbedaan blush bronzer dan contour",
+        "blush diletakkan di bagian mana"
+      ],
+      "responses": [
+        "Berminyak: blush, bronzer, highlighter bubuk cenderung lebih awet. Kering: krim atau cair menyatu lebih halus, bubuk bisa terlihat patchy. Kombinasi: krim di pipi, highlighter bubuk di tulang pipi saja. Normal: bebas. Tersenyum, lalu aplikasikan blush di apel pipi dan blend perlahan ke arah pelipis.",
+        "Pilih tekstur sesuai kulit: bubuk untuk berminyak, krim atau cair untuk kering. Ingat aturannya: blush krim dipakai sebelum bedak, blush bubuk dipakai sesudah bedak. Aplikasikan tipis-tipis dulu secara bertahap.",
+        "Blush memberi warna pada pipi, bronzer memberi kesan hangat, sedangkan contour digunakan untuk menciptakan efek bayangan. Untuk pemula, pilih salah satu produk terlebih dahulu. Aplikasikan sedikit demi sedikit dan baurkan tepinya agar tidak terlihat seperti garis. Posisi blush dapat disesuaikan dengan bentuk riasan yang diinginkan.",
+        "Blush krim atau cair umumnya digunakan sebelum bedak, sedangkan blush bubuk biasanya digunakan setelah bedak. Tekstur krim dapat terasa menyatu pada kulit kering, sementara tekstur bubuk sering lebih mudah dikontrol pada area yang cepat berminyak. Tidak ada satu teknik yang wajib untuk semua orang."
+      ]
+    },
+    {
+      "tag": "cara_pakai_alis",
+      "patterns": [
+        "cara gambar alis",
+        "cara pakai pensil alis",
+        "alis tipis cara isinya",
+        "gimana bikin alis rapi",
+        "pensil alis buat pemula",
+        "alis natural untuk pemula",
+        "cara merapikan alis",
+        "alis terlalu tebal bagaimana",
+        "cara memakai brow gel"
+      ],
+      "responses": [
+        "Isi bagian ekor dulu dengan goresan pendek searah rambut alis, lalu ke bagian tengah. Biarkan bagian pangkal alis tetap tipis dan jangan ditekan tajam.",
+        "Rapikan gradasinya ke arah depan menggunakan sikat (spoolie).",
+        "Sisir alis mengikuti arah tumbuh rambut. Isi bagian yang tampak kosong menggunakan goresan pendek dan ringan, terutama di bagian tengah dan ekor. Gunakan tekanan lebih lembut pada pangkal agar hasilnya tidak terlalu tegas. Setelah itu, sisir kembali dengan spoolie untuk membaurkan warna.",
+        "Pilih warna pensil alis yang terlihat menyatu dengan rambut alis dan keseluruhan riasan. Jika baru belajar, gunakan pensil berujung tipis atau powder brow agar lebih mudah dikontrol. Bersihkan garis yang terlalu tegas dengan spoolie atau cotton bud."
+      ]
+    },
+    {
+      "tag": "cara_pakai_maskara",
+      "patterns": [
+        "cara pakai maskara",
+        "maskara biar lentik",
+        "cara pakai maskara yang benar",
+        "gimana biar bulu mata lentik",
+        "cara memakai maskara pemula",
+        "maskara sebelum atau sesudah eyeshadow",
+        "cara agar maskara tidak menggumpal",
+        "cara membersihkan maskara",
+        "maskara untuk bulu mata pendek"
+      ],
+      "responses": [
+        "Lentikkan bulu mata dengan penjepit, lalu goyangkan sikat maskara dari akar ke ujung (zig-zag). Tunggu kering sebelum lapis kedua.",
+        "Menggoyangkan sikat maskara di bagian akar membantu memberi volume maksimal tanpa membuat ujung bulu mata menggumpal.",
+        "Pastikan bulu mata bersih dan kering. Jika menggunakan penjepit bulu mata, jepit perlahan sebelum maskara. Usapkan sikat dari pangkal ke ujung dengan gerakan ringan, lalu tunggu lapisan pertama mengering sebelum menambah lapisan. Hindari terlalu banyak lapisan agar tidak menggumpal.",
+        "Jangan memompa sikat maskara keluar-masuk tabung karena dapat memasukkan udara dan membuat produk lebih cepat mengering. Jangan berbagi maskara dengan orang lain. Hentikan penggunaan jika mata terasa perih atau mengalami iritasi."
+      ]
+    },
+    {
+      "tag": "cara_pakai_lipstik",
+      "patterns": [
+        "cara pakai lipstik",
+        "cara pakai lip tint",
+        "gimana cara oles lipstik",
+        "lip tint biar natural",
+        "cara pakai lipstik pemula",
+        "bikin ombre lips",
+        "lipstik natural untuk kuliah",
+        "cara agar lipstik rapi",
+        "lip liner untuk pemula"
+      ],
+      "responses": [
+        "Oles di tengah bibir lalu ratakan ke sudut, atau tepuk dengan jari untuk hasil ombre yang lebih soft.",
+        "Blot sisa produk dengan tisu supaya tidak terlalu basah/pekat, ini akan membuat warna lipstik menempel lebih natural ke bibir.",
+        "Pastikan bibir terasa nyaman dan tidak ada kulit yang sedang teriritasi. Gunakan lip balm bila diperlukan, biarkan meresap, lalu aplikasikan lipstik dari bagian tengah ke arah sudut bibir. Untuk hasil lembut, tepuk warna menggunakan jari bersih. Untuk hasil lebih rapi, gunakan lip liner yang warnanya mendekati lipstik.",
+        "Untuk ombre lips, aplikasikan warna dasar tipis pada seluruh bibir, lalu tambahkan warna yang lebih pekat di bagian dalam. Tepuk perlahan agar peralihan warna halus. Blot dengan tisu bila produk terlalu basah, kemudian tambahkan sedikit warna jika diperlukan."
+      ]
+    },
+    {
+      "tag": "produk_mata_bibir",
+      "patterns": [
+        "apakah jenis kulit pengaruh ke lipstik dan eyeshadow",
+        "eyeshadow untuk kelopak berminyak",
+        "lipstik buat bibir kering",
+        "maskara dan eyeliner untuk kulit berminyak",
+        "makeup mata dan bibir perlu disesuaikan jenis kulit ga"
+      ],
+      "responses": [
+        "Warna eyeshadow, lipstik, maskara, eyeliner tidak ditentukan jenis kulit (lebih ke undertone dan selera). Yang berpengaruh adalah daya tahan: kelopak berminyak butuh eyeshadow primer dan produk waterproof; bibir kering butuh lip balm dulu dan hindari matte yang menarik.",
+        "Untuk mata dan bibir, jenis kulit memengaruhi ketahanan, bukan warna. Kelopak berminyak: primer mata dan produk waterproof. Bibir kering: lembapkan dulu, pilih tekstur creamy."
+      ]
+    },
+    {
+      "tag": "setting_spray",
+      "patterns": [
+        "setting spray untuk kulit berminyak",
+        "setting spray buat kulit kering",
+        "setting spray yang bikin makeup tahan lama",
+        "cara pakai setting spray",
+        "setting spray kulit kombinasi",
+        "setting spray sebelum atau sesudah bedak",
+        "berapa kali semprot setting spray",
+        "bikin makeup lebih awet",
+        "setting spray dan fixing spray apakah sama"
+      ],
+      "responses": [
+        "Berminyak: matte atau oil-control. Kering: hydrating atau dewy. Kombinasi dan normal: natural atau satin. Semprot dari jarak 20-30 cm setelah semua makeup selesai, lalu biarkan kering sendiri.",
+        "Setting spray mengunci makeup supaya awet. Pilih finish sesuai kulit dan semprot dengan pola X dan T, jangan terlalu basah."
+      ]
+    },
+    {
+      "tag": "face_mist",
+      "patterns": [
+        "face mist apa gunanya",
+        "face mist untuk kulit kering",
+        "face mist kulit berminyak boleh ga",
+        "kapan pakai face mist",
+        "fungsi face mist untuk wajah",
+        "manfaat face mist untuk kulit"
+      ],
+      "responses": [
+        "Face mist menyegarkan dan melembapkan, bukan mengunci makeup (itu tugas setting spray). Kering: pilih yang hydrating. Berminyak: yang ringan dan oil-free, secukupnya. Kombinasi dan normal: sesuai kenyamanan.",
+        "Setting spray mengunci makeup, face mist menyegarkan kulit. Pakai sebelum makeup untuk melembapkan, atau sesudahnya untuk mengurangi kesan bedak yang terlalu kering."
+      ]
+    },
+    {
+      "tag": "makeup_cakey",
+      "patterns": [
+        "makeup cakey",
+        "foundation menggumpal",
+        "makeup retak di wajah",
+        "muka kelihatan tebal dan kering",
+        "foundation numpuk",
+        "kenapa makeup terlihat pecah",
+        "base makeup pecah pecah",
+        "foundation terlihat bertekstur",
+        "bedak menggumpal di wajah",
+        "makeup numpuk di wajah",
+        "makeup terlihat menumpuk dan kering"
+      ],
+      "responses": [
+        "Biasanya karena kulit kurang lembap, skincare belum meresap, produk terlalu tebal, atau bedak terlalu banyak. Lembapkan dulu, pakai base tipis, kurangi bedak, lalu tepuk dengan spons lembap atau semprot face mist.",
+        "Cakey sering muncul di kulit kering atau saat produk dilapis berlebihan. Coba pelembap lebih kaya, primer hydrating, foundation dewy, dan bedak hanya di T-zone.",
+        "Makeup cakey atau tampak menumpuk dapat disebabkan oleh base terlalu tebal, skincare belum meresap, kulit sedang kering, atau bedak terlalu banyak. Kurangi jumlah lapisan, beri jeda setelah skincare, dan aplikasikan foundation sedikit demi sedikit. Gunakan spons yang bersih dan sedikit lembap untuk menekan base secara perlahan.",
+        "Jika makeup sudah terlanjur cakey, jangan langsung menambah foundation atau bedak. Tekan area yang menumpuk dengan spons bersih, gunakan sedikit face mist jika sesuai dengan produk yang dipakai, lalu rapikan hanya bagian yang diperlukan. Untuk pemakaian berikutnya, evaluasi produk dan jumlah lapisan yang digunakan."
+      ]
+    },
+    {
+      "tag": "makeup_luntur_berminyak",
+      "patterns": [
+        "makeup cepat luntur",
+        "muka cepat berminyak setelah makeup",
+        "foundation hilang siang hari",
+        "wajah mengilap padahal baru makeup",
+        "makeup tidak tahan lama",
+        "makeup geser karena minyak",
+        "cara touch up wajah berminyak",
+        "makeup hilang di hidung",
+        "foundation luntur di sekitar hidung",
+        "makeup cepat hilang",
+        "makeup tidak awet di kulit berminyak"
+      ],
+      "responses": [
+        "Di kulit berminyak: primer mattifying, foundation oil-free, bedak tabur di T-zone, setting spray matte. Saat mengilap, blot dengan kertas minyak dulu baru bedak tipis; menimpa bedak langsung bikin makeup menumpuk.",
+        "Skincare ringan, tunggu meresap, base tipis, kunci dengan bedak dan setting spray matte, dan bawa kertas minyak untuk touch-up.",
+        "Makeup yang cepat luntur dapat berkaitan dengan produksi minyak, keringat, gesekan, atau lapisan skincare dan makeup yang belum meresap. Gunakan skincare yang nyaman, aplikasikan base tipis, dan set area yang mudah mengilap dengan bedak secukupnya. Setting spray dapat digunakan sesuai petunjuk produk.",
+        "Saat touch-up, tekan minyak dengan blotting paper atau tisu bersih terlebih dahulu. Jangan langsung menumpuk bedak di atas minyak karena dapat membuat permukaan makeup semakin tebal. Setelah area lebih rapi, tambahkan bedak tipis jika diperlukan."
+      ]
+    },
+    {
+      "tag": "foundation_teroksidasi",
+      "patterns": [
+        "foundation jadi gelap",
+        "foundation oranye",
+        "teroksidasi",
+        "foundation berubah warna",
+        "cushion jadi oranye",
+        "foundation jadi kusam",
+        "kenapa cushion berubah gelap",
+        "warna foundation berubah setelah beberapa jam",
+        "cara mencegah foundation oksidasi"
+      ],
+      "responses": [
+        "Foundation berubah warna karena bereaksi dengan minyak alami wajah dan udara. Pakai primer oil-control untuk menguranginya.",
+        "Kalau sering oksidasi jadi gelap/kusam di siang hari, akali dengan memilih shade cushion 1 tingkat lebih terang dari warna asli kulitmu.",
+        "Oksidasi adalah perubahan tampilan warna base setelah beberapa waktu digunakan. Warna dapat terlihat lebih gelap atau berbeda setelah bercampur dengan minyak, keringat, atau setelah formula mengering. Uji produk beberapa jam sebelum membeli jika memungkinkan, dan periksa hasilnya di cahaya alami.",
+        "Jangan otomatis memilih shade yang jauh lebih terang untuk mengantisipasi oksidasi. Coba beberapa shade yang paling mendekati warna wajah dan leher, lalu amati perubahan warnanya setelah beberapa waktu. Primer bukan jaminan untuk menghentikan oksidasi."
+      ]
+    },
+    {
+      "tag": "foundation_belang",
+      "patterns": [
+        "foundation belang",
+        "tidak rata",
+        "blending susah",
+        "foundation susah diratakan",
+        "foundation tidak menyatu dengan kulit",
+        "wajah seperti pakai topeng",
+        "foundation susah ngeblend",
+        "base makeup tidak menempel",
+        "foundation menggumpal saat dibaurkan"
+      ],
+      "responses": [
+        "Kulit yang kering membuat foundation sulit rata. Selalu pakai moisturizer dan aplikasikan foundation sedikit demi sedikit.",
+        "Blending yang kurang pas bikin wajah seperti pakai topeng. Pastikan beauty blender-mu lembap dan ratakan bedak sampai turun ke batas leher."
+      ]
+    },
+    {
+      "tag": "concealer_creasing",
+      "patterns": [
+        "concealer masuk garis",
+        "bawah mata berkerut",
+        "numpuk",
+        "concealer menumpuk di bawah mata",
+        "concealer retak di bawah mata",
+        "garis halus bawah mata kelihatan jelas"
+      ],
+      "responses": [
+        "Biasanya karena area mata terlalu kering atau produk ketebalan. Pakai eye cream tipis dan concealer secukupnya saja.",
+        "Setelah concealer rata, jangan biarkan basah! Langsung set dengan taburan tipis loose powder supaya tidak ada produk masuk ke lipatan mata."
+      ]
+    },
+    {
+      "tag": "wajah_keabu_abuan",
+      "patterns": [
+        "wajah keabu-abuan",
+        "wajah pucat",
+        "putih di foto",
+        "muka putih banget di foto",
+        "wajah terlihat abu abu",
+        "flashback foundation kamera"
+      ],
+      "responses": [
+        "Bisa jadi shade terlalu terang, atau memantul (flashback) karena foundation punya SPF terlalu tinggi saat terkena flash kamera.",
+        "Sering terjadi kalau undertone bedak tidak pas. Akali dengan menggunakan sedikit bronzer hangat di pipi agar warna wajah kembali normal."
+      ]
+    },
+    {
+      "tag": "eyeliner_belepotan",
+      "patterns": [
+        "eyeliner belepotan",
+        "eyeliner pindah ke atas",
+        "eyeliner luntur",
+        "eyeliner nyetak di kelopak mata",
+        "eyeliner smudge"
+      ],
+      "responses": [
+        "Terjadi bila kelopak matamu berminyak. Sapukan bedak tipis di kelopak mata sebelum menggambar eyeliner.",
+        "Pilih eyeliner bertipe waterproof/smudgeproof. Tunggu beberapa detik sampai benar-benar kering sebelum mengedip/membuka kelopak mata lebar-lebar."
+      ]
+    },
+    {
+      "tag": "maskara_bermasalah",
+      "patterns": [
+        "maskara menggumpal",
+        "maskara luntur",
+        "mata panda",
+        "maskara bikin mata panda",
+        "maskara numpuk di bulu mata",
+        "bulu mata lengket gumpal"
+      ],
+      "responses": [
+        "Jika gumpal, jangan memompa sikat maju mundur di dalam botol (masuk angin). Lap ujung sikat di tisu sebelum diusapkan.",
+        "Luntur jadi mata panda terjadi karena kelopak bawah mata berminyak. Set area sekitar mata dengan bedak dan selalu pakai maskara waterproof."
+      ]
+    },
+    {
+      "tag": "lipstik_pudar",
+      "patterns": [
+        "lipstik cepat pudar",
+        "lip tint hilang",
+        "lipstik cepat hilang",
+        "lipstik cepat luntur",
+        "warna lip tint memudar",
+        "lip tint tidak tahan lama",
+        "cara agar ombre tidak cepat hilang",
+        "lipstik menempel di gelas",
+        "cara touch up lipstik"
+      ],
+      "responses": [
+        "Bibir kering membuat pigmen mudah mengelupas. Pakai lip balm, biarkan meresap, oles lipstik tipis, dan blot dengan selembar tisu.",
+        "Untuk ekstra tahan lama, oles lapisan pertama, tepuk ringan pakai tisu, lalu oles lagi lapisan kedua (layering).",
+        "Lipstik dapat memudar karena makan, minum, gesekan, atau karakter formula. Untuk membantu warna bertahan, aplikasikan lapisan tipis, blot dengan tisu, lalu tambahkan lapisan kedua bila diperlukan. Gunakan lip balm sebelumnya jika bibir terasa kering, tetapi biarkan meresap agar lipstik tidak terlalu mudah bergeser.",
+        "Untuk touch-up, bersihkan sisa produk yang sudah tidak rata dengan tisu, aplikasikan ulang tipis-tipis, lalu rapikan bagian tepi. Tidak semua lipstik dirancang tahan sepanjang hari, sehingga pengaplikasian ulang merupakan hal yang wajar."
+      ]
+    },
+    {
+      "tag": "kulit_sensitif",
+      "patterns": [
+        "makeup untuk kulit sensitif",
+        "kulit sensitif cocok makeup apa",
+        "makeup bikin kulit perih",
+        "wajah mudah iritasi saat makeup",
+        "produk makeup untuk kulit sensitif",
+        "cara makeup kulit sensitif",
+        "kulit memerah setelah pakai makeup",
+        "wajah gatal setelah makeup"
+      ],
+      "responses": [
+        "Jika kulit mudah bereaksi, pilih produk dengan formula sederhana dan hindari bahan yang sebelumnya pernah memicu keluhan. Coba produk baru pada area kecil sesuai petunjuk produk terlebih dahulu sebelum digunakan di seluruh wajah. Gunakan alat yang bersih dan jangan memakai produk yang sudah berubah bau, warna, atau teksturnya.",
+        "Kulit sensitif tidak selalu sama pada setiap orang. Perhatikan bahan yang membuat kulit tidak nyaman dan hentikan pemakaian jika muncul rasa terbakar, bengkak, atau iritasi. Jika keluhan berat atau menetap, mintalah saran tenaga kesehatan. Makeup bukan pengganti perawatan kulit."
+      ]
+    },
+    {
+      "tag": "kulit_berjerawat",
+      "patterns": [
+        "makeup untuk kulit berjerawat",
+        "cushion untuk kulit acne prone",
+        "foundation untuk wajah berjerawat",
+        "cara makeup saat ada jerawat",
+        "makeup menutupi bekas jerawat",
+        "produk makeup untuk acne prone"
+      ],
+      "responses": [
+        "Jika kulit sedang berjerawat, pilih produk yang terasa nyaman dan tidak menyumbat atau memperburuk kondisi kulit. Label non-comedogenic dapat menjadi salah satu pertimbangan, tetapi kecocokan tetap berbeda pada setiap orang. Gunakan base tipis dan hindari menggosok area jerawat saat membaurkan produk.",
+        "Untuk menyamarkan noda, gunakan concealer sedikit demi sedikit pada area yang diperlukan. Pastikan puff, spons, dan brush bersih. Hapus makeup dengan lembut sebelum tidur. Jangan memencet jerawat hanya untuk memudahkan aplikasi makeup."
+      ]
+    },
+    {
+      "tag": "undertone",
+      "patterns": [
+        "apa itu undertone",
+        "cara mengetahui undertone kulit",
+        "undertone warm cool neutral",
+        "kulitku warm atau cool",
+        "warna makeup sesuai undertone",
+        "cara cek undertone"
+      ],
+      "responses": [
+        "Undertone adalah nuansa dasar warna kulit yang sering dikelompokkan menjadi warm, cool, dan neutral. Warm cenderung terlihat keemasan atau kekuningan, cool cenderung merah muda atau kebiruan, sedangkan neutral berada di antara keduanya. Pengamatan warna pembuluh darah atau kecocokan perhiasan hanya petunjuk awal, bukan tes yang pasti.",
+        "Untuk memilih foundation, jangan hanya mengandalkan kategori undertone. Uji beberapa warna di garis rahang menuju leher dan lihat hasilnya di cahaya alami. Pilih warna yang paling menyatu setelah produk mengering."
+      ]
+    },
+    {
+      "tag": "makeup_natural",
+      "patterns": [
+        "makeup natural",
+        "makeup no makeup look",
+        "makeup tipis sehari hari",
+        "tutorial makeup natural pemula",
+        "makeup simpel dan natural",
+        "makeup ringan untuk aktivitas harian"
+      ],
+      "responses": [
+        "Untuk tampilan natural, mulai dari skincare dan sunscreen, lalu gunakan base tipis hanya jika diperlukan. Rapikan alis, tambahkan blush tipis, maskara bila suka, dan lip tint atau lip balm berwarna. Baurkan setiap produk sampai tepinya menyatu.",
+        "Tampilan natural tidak harus menggunakan banyak produk. Kamu bisa melewatkan foundation dan cukup memakai sunscreen, merapikan alis, serta memakai produk bibir. Sesuaikan dengan kenyamanan dan aturan tempat beraktivitas."
+      ]
+    },
+    {
+      "tag": "makeup_acara",
+      "patterns": [
+        "makeup untuk acara formal",
+        "makeup wisuda",
+        "makeup pesta pemula",
+        "makeup untuk kondangan",
+        "makeup tahan lama untuk acara",
+        "makeup untuk foto"
+      ],
+      "responses": [
+        "Untuk acara, siapkan kulit seperti biasa dan gunakan produk yang sudah pernah dicoba agar risiko ketidakcocokan lebih kecil. Aplikasikan base secara bertahap, rapikan area yang mudah berminyak, dan pilih warna mata serta bibir yang sesuai dengan pakaian dan suasana acara.",
+        "Jika acara berlangsung lama, bawa produk touch-up sederhana seperti blotting paper, bedak, dan lip product. Coba riasan beberapa hari sebelumnya jika memungkinkan, terutama bila kamu belum terbiasa memakai produk tersebut."
+      ]
+    },
+    {
+      "tag": "eyeshadow_cara_pakai",
+      "patterns": [
+        "cara memakai eyeshadow",
+        "eyeshadow untuk pemula",
+        "urutan eyeshadow",
+        "cara blend eyeshadow",
+        "warna eyeshadow natural",
+        "eyeshadow supaya tidak berantakan"
+      ],
+      "responses": [
+        "Untuk pemula, gunakan dua atau tiga warna dalam satu palet: warna terang atau netral sebagai dasar, warna sedang pada lipatan atau sudut luar mata, dan warna shimmer jika diinginkan. Ambil sedikit produk, ketuk kelebihan bubuk, lalu baurkan perlahan menggunakan brush bersih.",
+        "Agar eyeshadow lebih rapi, aplikasikan warna sedikit demi sedikit dan baurkan batas antarwarna. Jika kelopak mudah berminyak, eye primer dapat membantu sesuai kecocokan produk. Bersihkan sisa bubuk di bawah mata setelah selesai."
+      ]
+    },
+    {
+      "tag": "eyeliner_cara_pakai",
+      "patterns": [
+        "cara memakai eyeliner",
+        "eyeliner untuk pemula",
+        "bikin eyeliner tipis",
+        "eyeliner susah dipakai",
+        "eyeliner untuk mata pemula",
+        "cara menggambar garis mata"
+      ],
+      "responses": [
+        "Mulailah dengan membuat titik-titik kecil di dekat garis bulu mata, lalu hubungkan perlahan. Gunakan tekanan ringan dan jangan menarik kulit terlalu kuat. Pensil eyeliner biasanya lebih mudah dikontrol oleh pemula dibandingkan formula cair yang sangat cair.",
+        "Jika garis belum rata, rapikan sedikit demi sedikit dengan cotton bud yang bersih. Pastikan produk memang aman digunakan di area mata dan hentikan pemakaian jika mata terasa perih atau iritasi."
+      ]
+    },
+    {
+      "tag": "makeup_remover",
+      "patterns": [
+        "cara membersihkan makeup",
+        "makeup remover yang bagus",
+        "hapus makeup sebelum tidur",
+        "micellar water atau cleansing oil",
+        "cara menghapus maskara waterproof",
+        "membersihkan wajah setelah makeup"
+      ],
+      "responses": [
+        "Makeup sebaiknya dibersihkan sebelum tidur. Pilih pembersih sesuai jenis dan ketahanan makeup: micellar water dapat membantu membersihkan makeup ringan, sedangkan cleansing oil atau balm dapat membantu meluruhkan makeup yang lebih tahan lama. Ikuti petunjuk produk dan lanjutkan dengan pembersih wajah yang lembut jika diperlukan.",
+        "Untuk area mata dan bibir, gunakan pembersih yang sesuai dan tempelkan kapas beberapa saat sebelum mengusap lembut. Jangan menggosok mata dengan keras. Pastikan tidak ada sisa produk yang membuat area mata terasa tidak nyaman."
+      ]
+    },
+    {
+      "tag": "kebersihan_alat_makeup",
+      "patterns": [
+        "cara mencuci brush makeup",
+        "cara membersihkan spons makeup",
+        "kapan harus mencuci beauty blender",
+        "alat makeup harus dicuci berapa kali",
+        "brush makeup kotor",
+        "kebersihan alat makeup",
+        "seberapa sering mencuci brush atau spons"
+      ],
+      "responses": [
+        "Bersihkan brush dan spons secara rutin, terutama alat yang sering digunakan dengan produk cair atau krim. Gunakan pembersih yang sesuai, bilas hingga bersih, tekan perlahan untuk mengeluarkan air, lalu keringkan sepenuhnya di tempat bersih dan memiliki sirkulasi udara.",
+        "Jangan menyimpan spons dalam keadaan lembap tertutup karena dapat menjadi tempat berkembangnya mikroorganisme. Jangan berbagi alat yang bersentuhan langsung dengan mata atau bibir. Ganti alat jika rusak, berbau, atau sulit dibersihkan."
+      ]
+    },
+    {
+      "tag": "makeup_touch_up",
+      "patterns": [
+        "cara touch up makeup",
+        "touch up makeup di kampus",
+        "makeup perlu diperbaiki bagaimana",
+        "produk untuk touch up",
+        "cara memperbaiki makeup siang hari",
+        "touch up tanpa merusak makeup"
+      ],
+      "responses": [
+        "Sebelum touch-up, lihat area yang benar-benar perlu diperbaiki. Tekan minyak dengan blotting paper atau tisu bersih, rapikan base yang bergeser dengan spons bersih, lalu tambahkan bedak tipis bila diperlukan. Hindari menumpuk banyak produk di seluruh wajah.",
+        "Untuk touch-up praktis, bawa blotting paper, bedak yang biasa digunakan, dan produk bibir. Tidak perlu mengulang seluruh langkah makeup. Fokus pada bagian yang memudar atau terasa kurang nyaman."
+      ]
+    },
+    {
+      "tag": "makeup_pilling",
+      "patterns": [
+        "skincare menggumpal sebelum makeup",
+        "produk wajah mengelupas saat dipakai",
+        "makeup pilling",
+        "sunscreen menggumpal di wajah",
+        "kenapa skincare seperti serbuk",
+        "primer menggumpal"
+      ],
+      "responses": [
+        "Pilling adalah kondisi ketika produk tampak menggulung atau membentuk serpihan saat digosok. Hal ini dapat terjadi karena lapisan terlalu banyak, jumlah produk berlebihan, waktu tunggu terlalu singkat, atau formula yang kurang cocok saat ditumpuk.",
+        "Coba sederhanakan skin prep, gunakan produk dalam jumlah secukupnya, beri waktu setiap lapisan meresap, dan aplikasikan produk berikutnya dengan gerakan menepuk. Jangan menggosok berulang kali jika produk mulai menggulung."
+      ]
+    },
+    {
+      "tag": "makeup_transfer",
+      "patterns": [
+        "foundation transfer ke masker",
+        "makeup menempel di baju",
+        "makeup transfer",
+        "base makeup pindah ke masker",
+        "cara agar makeup tidak transfer",
+        "foundation menempel di tangan"
+      ],
+      "responses": [
+        "Transfer terjadi ketika sebagian produk berpindah ke benda yang menyentuh wajah, misalnya masker, pakaian, atau tangan. Gunakan base tipis, biarkan produk meresap, dan set area yang mudah bersentuhan dengan bedak secukupnya. Produk transfer-resistant dapat dipertimbangkan jika memang dibutuhkan.",
+        "Tidak ada makeup yang sepenuhnya bebas transfer dalam semua kondisi. Kurangi gesekan pada wajah dan hindari menyentuh area yang baru dirias. Jika menggunakan masker, pastikan masker bersih dan ganti bila lembap atau kotor."
+      ]
+    },
+    {
+      "tag": "makeup_patchy",
+      "patterns": [
+        "makeup patchy",
+        "foundation tidak menempel di beberapa bagian",
+        "base makeup terpisah",
+        "foundation pecah di hidung",
+        "makeup tidak rata di pipi",
+        "foundation terlihat bercak"
+      ],
+      "responses": [
+        "Makeup patchy dapat muncul karena permukaan kulit sedang kering, skincare belum meresap, produk terlalu banyak, atau formula yang digunakan kurang cocok saat ditumpuk. Kurangi jumlah lapisan dan ratakan base dengan spons atau brush bersih secara perlahan.",
+        "Periksa area yang sering bermasalah, misalnya sekitar hidung dan pipi. Gunakan pelembap sesuai kebutuhan, beri jeda sebelum makeup, dan aplikasikan foundation sedikit demi sedikit. Jangan terus menambahkan produk pada bagian yang sudah menumpuk."
+      ]
+    },
+    {
+      "tag": "makeup_untuk_pemula",
+      "patterns": [
+        "aku baru belajar makeup",
+        "belajar makeup dari nol",
+        "tutorial makeup pertama",
+        "bingung mulai makeup",
+        "pemula harus belajar makeup apa dulu",
+        "tips makeup pemula"
+      ],
+      "responses": [
+        "Mulailah dengan mengenali jenis kulit dan kebutuhan sehari-hari. Pelajari skin prep, cara memilih base, merapikan alis, memakai blush, dan mengaplikasikan produk bibir. Latih satu teknik dalam satu waktu agar lebih mudah memahami jumlah produk dan cara membaurkannya.",
+        "Tidak perlu langsung menguasai semua teknik. Mulai dengan beberapa produk dasar yang nyaman, pelajari cara membersihkannya, dan gunakan alat yang bersih. Setelah terbiasa, kamu dapat mencoba eyeshadow, eyeliner, bronzer, atau teknik lain sesuai minat."
+      ]
+    },
+    {
+      "tag": "perbedaan_face_mist_setting_spray",
+      "patterns": [
+        "beda face mist dan setting spray",
+        "face mist sama setting spray",
+        "face mist bisa mengunci makeup",
+        "setting spray untuk apa",
+        "face mist dipakai kapan"
+      ],
+      "responses": [
+        "Face mist umumnya digunakan untuk memberi sensasi segar atau kelembapan, sedangkan setting spray diformulasikan untuk membantu hasil makeup bertahan sesuai klaim produknya. Keduanya tidak selalu bisa saling menggantikan.",
+        "Periksa fungsi dan petunjuk pada kemasan. Face mist dapat digunakan pada tahap yang dianjurkan produk, sedangkan setting spray biasanya digunakan setelah makeup selesai. Semprot dari jarak yang disarankan dan hindari menghirup kabut semprotan."
+      ]
+    },
+    {
+      "tag": "keamanan_kedaluwarsa_produk",
+      "patterns": [
+        "makeup kedaluwarsa",
+        "berapa lama makeup bisa dipakai",
+        "produk makeup berubah bau",
+        "cushion sudah lama apakah masih boleh",
+        "maskara sudah lama",
+        "tanggal kedaluwarsa makeup"
+      ],
+      "responses": [
+        "Periksa tanggal kedaluwarsa dan simbol masa pakai setelah dibuka (PAO) pada kemasan. Lama penggunaan berbeda menurut jenis dan formula produk. Catat kapan produk pertama kali dibuka jika diperlukan.",
+        "Jangan gunakan produk yang berubah bau, warna, tekstur, atau menimbulkan reaksi yang tidak biasa. Produk mata perlu dijaga kebersihannya dan tidak dibagikan kepada orang lain. Jika ragu terhadap keamanan produk, lebih baik hentikan pemakaian."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+/* RiasMe: pink (aksen), cokelat (teks), hijau matcha (aksi) */
+:root{
+  --pink-50:#fff6f9; --pink-100:#fde7ee; --pink-200:#f9d3df; --pink-400:#ee93ae;
+  --rose-600:#cf4f75; --rose-700:#b83f63;
+  --brown-900:#4a2f27; --brown-700:#6d4a3d; --brown-300:#c9a99a;
+  --green-100:#e6f1e1; --green-300:#b5d3ab; --green-600:#5f8f67; --green-700:#4a7452; --green-900:#2f5238;
+}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%}
+body{
+  font-family:'Nunito',system-ui,sans-serif; color:var(--brown-900);
+  background:
+    radial-gradient(60vmax 60vmax at 6% 4%, #fbcfdc 0, transparent 60%),
+    radial-gradient(50vmax 50vmax at 96% 10%, #d3e7cc 0, transparent 60%),
+    radial-gradient(55vmax 55vmax at 82% 102%, #ecd5c8 0, transparent 60%),
+    var(--pink-50);
+  background-attachment:fixed;
+}
+body::before{ /* pola titik halus */
+  content:""; position:fixed; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(109,74,61,.13) 1.3px, transparent 1.5px);
+  background-size:24px 24px;
+  -webkit-mask-image:linear-gradient(#000, transparent 85%); mask-image:linear-gradient(#000, transparent 85%);
+}
+body.chat{height:100%; display:grid; place-items:center; padding:16px; overflow:hidden}
+:focus-visible{outline:3px solid var(--green-600); outline-offset:2px}
+a{color:var(--green-700)}
+
+/* Kartu kaca semi-transparan */
+.app,.sheet{
+  position:relative; background:rgba(255,255,255,.58);
+  -webkit-backdrop-filter:blur(18px) saturate(1.2); backdrop-filter:blur(18px) saturate(1.2);
+  border:1.5px solid rgba(255,255,255,.9); border-radius:28px;
+  box-shadow:0 26px 60px -22px rgba(109,74,61,.38);
+}
+.app{
+  width:min(760px,100%); height:min(880px,calc(100dvh - 32px));
+  display:flex; flex-direction:column; overflow:hidden; animation:masuk .6s ease-out both;
+}
+@keyframes masuk{from{opacity:0; transform:translateY(14px)}}
+
+/* Header + tepi bergelombang seperti kanopi kafe */
+.top{display:flex; align-items:center; gap:10px; padding:16px 18px; background:var(--pink-200); flex:none}
+.scallop{flex:none; height:12px; margin-top:-1px;
+  background:radial-gradient(circle at 12px 0, var(--pink-200) 11px, transparent 12px) 0 0/24px 12px repeat-x}
+.avatar{display:grid; place-items:center; border-radius:50%; background:#fff; border:2px solid var(--pink-400); flex:none}
+.avatar-lg{width:46px; height:46px; font-size:1.4rem; margin-right:2px}
+.title{flex:1; min-width:0}
+h1{font:600 1.3rem/1.1 'Fredoka',sans-serif; letter-spacing:.01em}
+.title p{font-size:.86rem; color:var(--brown-700); margin-top:3px}
+.icon-btn{width:38px; height:38px; display:grid; place-items:center; border:0; border-radius:50%; cursor:pointer; flex:none;
+  color:var(--brown-700); background:rgba(255,255,255,.65); transition:background .15s}
+.icon-btn:hover{background:#fff; color:var(--rose-700)}
+
+/* Saklar Mode belajar */
+.learn-toggle{display:flex; align-items:center; gap:8px; cursor:pointer; font-size:.8rem; font-weight:700; color:var(--green-900);
+  background:var(--green-100); border:1px solid var(--green-300); padding:5px 11px 5px 7px; border-radius:999px; white-space:nowrap}
+.learn-toggle input{position:absolute; opacity:0; pointer-events:none}
+.switch{width:30px; height:18px; border-radius:999px; background:var(--green-300); position:relative; transition:background .15s}
+.switch::after{content:""; position:absolute; top:2px; left:2px; width:14px; height:14px; border-radius:50%; background:#fff; transition:transform .15s}
+.learn-toggle input:checked + .switch{background:var(--green-700)}
+.learn-toggle input:checked + .switch::after{transform:translateX(12px)}
+.learn-toggle input:focus-visible + .switch{outline:3px solid var(--green-600); outline-offset:2px}
+
+/* Percakapan */
+.messages{position:relative; z-index:1; scrollbar-width:thin; scrollbar-color:var(--pink-200) transparent; flex:1; overflow-y:auto; padding:18px 18px 8px; display:flex; flex-direction:column; gap:12px; scroll-behavior:smooth}
+.row{display:flex; align-items:flex-end; gap:8px}
+.row.user{justify-content:flex-end}
+.row .avatar{width:30px; height:30px; font-size:.95rem; border-width:1.5px; background:var(--pink-100)}
+.bubble{max-width:min(82%,520px); padding:11px 15px; font-size:.98rem; line-height:1.55;
+  white-space:pre-wrap; overflow-wrap:anywhere; border-radius:20px}
+.bot .bubble{background:rgba(255,255,255,.9); border:1px solid rgba(201,169,154,.4); border-bottom-left-radius:6px}
+.user .bubble{background:linear-gradient(135deg,var(--rose-600),var(--rose-700)); color:#fff; border-bottom-right-radius:6px}
+.bubble.error{background:#fff1ee; border-color:#e7b7a8}
+.dots{display:flex; gap:5px; padding:4px 2px}
+.dots span{width:8px; height:8px; border-radius:50%; background:var(--green-600); animation:lompat 1s infinite ease-in-out}
+.dots span:nth-child(2){animation-delay:.15s} .dots span:nth-child(3){animation-delay:.3s}
+@keyframes lompat{0%,60%,100%{transform:translateY(0); opacity:.5} 30%{transform:translateY(-5px); opacity:1}}
+
+/* Info teknis: hanya tampil saat Mode belajar aktif */
+.meta,.candidates{display:none; font-size:.78rem; color:var(--brown-700)}
+.belajar .meta{display:block; margin-top:8px}
+.belajar .candidates{display:block; margin:6px 0 0 18px; line-height:1.45}
+
+/* Chip pertanyaan */
+.chips{flex:none; display:flex; gap:8px; overflow-x:auto; padding:8px 18px 10px; scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none; cursor:pointer; font:600 .85rem 'Nunito',sans-serif; color:var(--green-900);
+  background:var(--green-100); border:1px solid var(--green-300); border-radius:999px; padding:7px 13px; transition:background .15s, transform .15s}
+.chip:hover{background:var(--green-300)}
+.chip:active{transform:scale(.97)}
+
+/* Kolom ketik */
+.composer{flex:none; display:flex; align-items:flex-end; gap:10px; padding:12px 14px 16px;
+  background:rgba(255,255,255,.5); border-top:1px solid rgba(201,169,154,.3)}
+.field{position:relative; flex:1}
+textarea{overflow-y:hidden; display:block; width:100%; max-height:120px; resize:none; font:inherit; line-height:1.4; color:inherit;
+  padding:12px 16px; border:1.5px solid var(--pink-200); border-radius:22px; background:rgba(255,255,255,.92);
+  transition:border-color .15s, box-shadow .15s}
+textarea::placeholder{color:#9b7d70}
+textarea:focus-visible{outline:none; border-color:var(--pink-400); box-shadow:0 0 0 4px rgba(238,147,174,.25)}
+.count{position:absolute; right:14px; bottom:-15px; font-size:.72rem; color:var(--brown-700)}
+.send{width:46px; height:46px; flex:none; display:grid; place-items:center; border:0; border-radius:50%; cursor:pointer;
+  color:#fff; background:var(--green-700); transition:background .15s, opacity .15s, transform .15s}
+.send:hover:not(:disabled){background:var(--green-900)}
+.send:active:not(:disabled){transform:scale(.94)}
+.send:disabled{opacity:.4; cursor:not-allowed}
+
+/* Halaman statistik (admin) dan galat 404/403 */
+.sheet{width:min(980px,calc(100% - 32px)); margin:24px auto; padding:28px}
+.hero{text-align:center; padding:28px 8px}
+.hero h1,.admin h1{font:600 1.6rem/1.2 'Fredoka',sans-serif}
+.hero p{margin-top:10px; color:var(--brown-700)}
+.admin h2{font:600 1.15rem 'Fredoka',sans-serif; margin:26px 0 10px}
+.admin p{line-height:1.6}
+.muted{color:var(--brown-700); margin-top:8px}
+code{background:var(--pink-100); padding:1px 6px; border-radius:6px; font-size:.9em}
+.stat-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:20px}
+.stat{display:flex; flex-direction:column; gap:2px; padding:16px; border-radius:20px; background:rgba(255,255,255,.85); border:1px solid rgba(201,169,154,.35); color:var(--brown-700); font-size:.9rem}
+.stat-num{font:600 1.9rem/1.1 'Fredoka',sans-serif; color:var(--rose-700)}
+.table{width:100%; border-collapse:collapse; background:rgba(255,255,255,.85); border-radius:16px; overflow:hidden}
+.table th,.table td{padding:10px 14px; text-align:left; border-bottom:1px solid rgba(201,169,154,.3); font-size:.92rem}
+.table th{background:var(--green-100); color:var(--green-900)}
+.bar{height:8px; min-width:80px; border-radius:999px; background:var(--pink-100); overflow:hidden}
+.bar span{display:block; height:100%; background:var(--green-600); border-radius:999px}
+
+a.avatar{text-decoration:none}
+.ico{display:block; width:40px; height:40px; flex:none}
+.hero .ico{width:72px; height:72px; margin:0 auto 10px}
+
+/* Jawaban bot: paragraf dan daftar */
+.bubble.rich{white-space:normal}
+.rich p+p,.rich p+ol,.rich p+ul,.rich ol+p,.rich ul+p{margin-top:8px}
+.rich ol,.rich ul{padding-left:1.35em; margin-top:6px}
+.rich li{padding-left:2px; margin-top:3px}
+.rich li::marker{color:var(--rose-600); font-weight:700}
+.rich li strong{color:var(--brown-700)}
+
+/* Hiasan makeup di area chat */
+.deco{position:absolute; z-index:0; opacity:.2; pointer-events:none}
+.d1{width:84px; height:84px; right:18px; top:92px; transform:rotate(24deg)}
+.d2{width:70px; height:70px; left:14px; top:46%; transform:rotate(-14deg)}
+.d3{width:92px; height:92px; right:22px; bottom:150px; transform:rotate(10deg)}
+
+/* Landing page */
+.lp{width:min(1080px,calc(100% - 32px)); margin:0 auto; padding:26px 0 36px}
+.lp-brand{display:flex; align-items:center; gap:8px; font:600 1.3rem 'Fredoka',sans-serif}
+.lp-brand .ico{width:32px; height:32px}
+.lp-hero{display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center; padding:34px 0 30px}
+.lp-copy h1{font:600 clamp(2.1rem,4.8vw,3.4rem)/1.1 'Fredoka',sans-serif}
+.lp-copy p{margin:16px 0 26px; max-width:46ch; font-size:1.08rem; line-height:1.65; color:var(--brown-700)}
+.btn{display:inline-block; padding:14px 28px; border-radius:999px; background:var(--green-700); color:#fff; font:700 1rem 'Nunito',sans-serif;
+  text-decoration:none; box-shadow:0 14px 26px -14px rgba(74,116,82,.9); transition:background .15s, transform .15s}
+.btn:hover{background:var(--green-900)} .btn:active{transform:scale(.98)}
+.lp-note{display:block; margin-top:14px; font-size:.86rem; color:var(--brown-700)}
+.mirror{position:relative; justify-self:center; width:min(380px,100%); display:flex; flex-direction:column; gap:12px;
+  padding:70px 22px 26px; border-radius:999px 999px 32px 32px; border:7px solid #fff;
+  background:rgba(255,255,255,.6); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+  box-shadow:0 0 0 2px var(--pink-200), 0 30px 60px -24px rgba(109,74,61,.45)}
+.fl{position:absolute; filter:drop-shadow(0 8px 8px rgba(109,74,61,.25))}
+.f-kuas{width:84px; height:84px; top:-6px; right:-34px; transform:rotate(26deg)}
+.f-lipstik{width:68px; height:68px; bottom:-20px; left:-30px; transform:rotate(-16deg)}
+.f-cushion{width:88px; height:88px; bottom:-26px; right:-26px; transform:rotate(10deg)}
+.f-kilau{width:36px; height:36px; top:40px; left:-8px}
+.lp h2{font:600 1.5rem 'Fredoka',sans-serif; margin:30px 0 16px}
+.topics{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px}
+.topic{display:block; padding:18px; border-radius:24px; text-decoration:none; color:inherit; background:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.95); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); transition:transform .15s, box-shadow .15s}
+.topic:hover{transform:translateY(-3px); box-shadow:0 18px 30px -20px rgba(109,74,61,.5)}
+.topic .ico{width:48px; height:48px}
+.topic h3{font:600 1.05rem 'Fredoka',sans-serif; margin:10px 0 4px}
+.topic p{font-size:.9rem; line-height:1.5; color:var(--brown-700)}
+.lp-foot{margin-top:34px; text-align:center; font-size:.84rem; color:var(--brown-700)}
+@media (max-width:820px){.lp-hero{grid-template-columns:1fr; gap:48px}}
+
+@media (max-width:560px){
+  .deco{display:none}
+  body.chat{padding:0}
+  .app{width:100%; height:100dvh; border-radius:0; border:0}
+  .toggle-text{display:none}
+  .learn-toggle{padding:6px 8px}
+  .bubble{max-width:86%}
+  .sheet{padding:18px; margin:12px auto}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+}

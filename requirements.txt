@@ -1,0 +1,3 @@
+# Cukup dua pustaka untuk SEMUA tahap dan aplikasi final
+Flask>=3.0
+pytest>=8.0

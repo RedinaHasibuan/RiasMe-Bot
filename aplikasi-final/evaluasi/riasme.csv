@@ -1,0 +1,90 @@
+kalimat,intent
+selamat sore kak,salam
+permisi kak mau tanya,salam
+boleh kenalan dulu kamu ini siapa,perkenalan_bot
+oke makasih banyak kak,terima_kasih
+makasih ya jawabannya membantu banget,terima_kasih
+beli makeup apa dulu kalau uang saku pas-pasan,budget_makeup_pemula
+makeup kilat buat berangkat kuliah,makeup_kuliah_cepat
+kesiangan banget mau dandan cepat,makeup_kuliah_cepat
+gimana sih cara ngecek jenis kulit wajahku,kenali_jenis_kulit
+langkah makeup dari awal sampai akhir,urutan_makeup_umum
+langkah makeup untuk wajah yang berminyak,urutan_kulit_berminyak
+aku kulit kering makeupnya urut gimana,urutan_kulit_kering
+makeup untuk kulit kombinasi urutannya apa,urutan_kulit_kombinasi
+kulitku normal urutan makeup yang pas apa,urutan_kulit_normal
+alat makeup yang wajib dimiliki pemula apa aja,alat_makeup_dasar
+skincare apa yang harus dipakai sebelum makeup,skin_prep
+primer itu wajib nggak sih,primer
+foundation yang bagus buat kulit berminyak apa,foundation_cushion
+bedanya cushion dan foundation itu apa,beda_foundie_cushion
+gimana cara menentukan shade foundation yang cocok,cara_pilih_shade
+cara pakai concealer yang benar gimana,concealer_cara_pakai
+loose powder cocok untuk kulit apa,loose_powder
+blush ditaruh di bagian mana ya,blush_bronzer_cara_pakai
+cara melukis alis buat pemula,cara_pakai_alis
+cara pasang maskara biar bulu mata lentik,cara_pakai_maskara
+cara pakai lipstik biar rapi,cara_pakai_lipstik
+apakah eyeshadow dan lipstik harus disesuaikan dengan jenis kulit,produk_mata_bibir
+setting spray kulit kering yang bagus apa,setting_spray
+kegunaan face mist itu apa,face_mist
+makeup kelihatan numpuk dan kering di wajah,makeup_cakey
+kenapa makeup cepat hilang kalau kulit berminyak,makeup_luntur_berminyak
+kenapa foundation berubah jadi lebih gelap setelah beberapa jam,foundation_teroksidasi
+foundation susah menyatu dan belang di pipi,foundation_belang
+concealer masuk ke garis di bawah mata kenapa,concealer_creasing
+kenapa mukaku jadi pucat keabuan pas difoto,wajah_keabu_abuan
+eyeliner luntur dan nyetak di kelopak atas,eyeliner_belepotan
+maskara gumpal gimana cara mengatasinya,maskara_bermasalah
+lipstik cepat hilang setelah makan,lipstik_pudar
+kulit mudah merah kalau pakai makeup,kulit_sensitif
+makeup yang aman untuk wajah jerawatan,kulit_berjerawat
+bagaimana cara tahu undertone kulitku,undertone
+makeup tipis yang kelihatan natural,makeup_natural
+makeup buat acara wisuda yang tahan lama,makeup_acara
+cara pakai eyeshadow buat pemula,eyeshadow_cara_pakai
+cara bikin garis eyeliner biar rapi,eyeliner_cara_pakai
+cara menghapus makeup yang benar,makeup_remover
+seberapa sering spons makeup dicuci,kebersihan_alat_makeup
+cara touch up makeup di toilet kampus,makeup_touch_up
+skincare gumpal saat dipakai sebelum makeup,makeup_pilling
+makeup nempel di masker gimana ngatasinnya,makeup_transfer
+foundation terlihat bercak dan tidak merata,makeup_patchy
+tips untuk yang baru mulai belajar makeup,makeup_untuk_pemula
+apa perbedaan face mist dan setting spray,perbedaan_face_mist_setting_spray
+makeup yang sudah lama masih aman dipakai nggak,keamanan_kedaluwarsa_produk
+siapa presiden indonesia sekarang,fallback
+resep nasi goreng enak,fallback
+jadwal kuliah semester ini,fallback
+harga bensin hari ini,fallback
+cara install python di laptop,fallback
+rekomendasi film terbaru,fallback
+skor bola tadi malam,fallback
+cara membuat kopi susu,fallback
+halo kak aku mau nanya,salam
+kamu itu sebenarnya bot buat apa,perkenalan_bot
+terima kasih ya kak sangat membantu,terima_kasih
+makeup apa yang paling penting dibeli duluan kalau dana terbatas,budget_makeup_pemula
+aku mau makeup yang cepat buat ngampus pagi,makeup_kuliah_cepat
+gimana caranya tahu kulitku kering atau berminyak,kenali_jenis_kulit
+pemakaian makeup yang benar dari tahap awal,urutan_makeup_umum
+makeup buat wajah berminyak tahapannya apa saja,urutan_kulit_berminyak
+tahapan makeup untuk kulit kering,urutan_kulit_kering
+cushion yang bagus buat kulit kering,foundation_cushion
+mending beli cushion atau foundation cair,beda_foundie_cushion
+shade foundation dites di tangan atau leher,cara_pilih_shade
+bedak tabur wajib nggak buat kulit berminyak,loose_powder
+cara pakai pensil alis supaya natural,cara_pakai_alis
+kenapa eyeliner aku sering luntur di kelopak,eyeliner_belepotan
+lip tint cepat pudar karena apa,lipstik_pudar
+makeup apa yang aman buat kulit sensitif,kulit_sensitif
+bedanya warm cool dan neutral itu apa,undertone
+tutorial eyeshadow simpel buat pemula,eyeshadow_cara_pakai
+bagaimana membersihkan makeup tanpa bikin kulit kering,makeup_remover
+beauty blender harus dicuci tiap berapa hari,kebersihan_alat_makeup
+makeup bikin wajah kelihatan tidak merata,makeup_patchy
+cushion yang udah setahun masih bisa dipakai nggak,keamanan_kedaluwarsa_produk
+bagaimana cara membuat nasi uduk,fallback
+siapa juara liga champions tahun lalu,fallback
+tolong ajarin aku coding python,fallback
+berapa harga tiket kereta ke bandung,fallback

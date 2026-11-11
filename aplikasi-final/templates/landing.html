@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ theme.bot_name }} &middot; {{ theme.name }}{% endblock %}
+{% block body_class %}landing{% endblock %}
+
+{% block wrapper %}
+<main class="lp">
+  <div class="lp-brand"><svg class="ico" aria-hidden="true"><use href="#i-kuas"/></svg>{{ theme.bot_name }}</div>
+
+  <section class="lp-hero">
+    <div class="lp-copy">
+      <h1>Belajar makeup pelan-pelan, tanpa bingung.</h1>
+      <p>Tanya {{ theme.bot_name }} soal jenis kulit, urutan makeup, pilihan produk, sampai makeup yang cakey. Jawabannya singkat, berurutan, dan pakai bahasa sehari-hari.</p>
+      <a class="btn" href="{{ url_for('chat_page', theme_id=theme.id) }}">Mulai tanya {{ theme.bot_name }}</a>
+      <span class="lp-note">{{ theme.name }} untuk mahasiswa dan pemula</span>
+    </div>
+
+    <div class="mirror" aria-hidden="true">
+      <svg class="fl f-kuas"><use href="#i-kuas"/></svg>
+      <svg class="fl f-lipstik"><use href="#i-lipstik"/></svg>
+      <svg class="fl f-cushion"><use href="#i-cushion"/></svg>
+      <svg class="fl f-kilau"><use href="#i-kilau"/></svg>
+      <div class="row user"><div class="bubble">Kulitku kering, makeup apa dulu ya?</div></div>
+      <div class="row bot"><div class="bubble rich">
+        <p>Urutan makeup untuk kulit kering:</p>
+        <ol><li>Toner atau essence hydrating</li><li>Pelembap krim</li><li>Sunscreen</li></ol>
+      </div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Mau mulai dari mana?</h2>
+    <div class="topics">
+      <a class="topic" href="{{ url_for('chat_page', theme_id=theme.id, q='Bagaimana cara mengenali jenis kulit?') }}">
+        <svg class="ico"><use href="#i-cushion"/></svg><h3>Kenali jenis kulit</h3><p>Berminyak, kering, kombinasi, atau normal? Cek cirinya dulu.</p></a>
+      <a class="topic" href="{{ url_for('chat_page', theme_id=theme.id, q='Urutan makeup lengkap untuk pemula') }}">
+        <svg class="ico"><use href="#i-palet"/></svg><h3>Urutan makeup</h3><p>Langkah dari skincare sampai setting spray, satu per satu.</p></a>
+      <a class="topic" href="{{ url_for('chat_page', theme_id=theme.id, q='Bagaimana memilih shade dan undertone?') }}">
+        <svg class="ico"><use href="#i-lipstik"/></svg><h3>Pilih shade dan produk</h3><p>Cari warna yang cocok tanpa harus coba semuanya.</p></a>
+      <a class="topic" href="{{ url_for('chat_page', theme_id=theme.id, q='Kenapa makeup terlihat cakey atau patchy?') }}">
+        <svg class="ico"><use href="#i-kuas"/></svg><h3>Atasi cakey dan patchy</h3><p>Penyebab dan cara memperbaikinya dengan cepat.</p></a>
+    </div>
+  </section>
+
+  <p class="lp-foot">Jawaban {{ theme.bot_name }} adalah panduan dasar. Untuk kulit bermasalah, sebaiknya periksakan ke dokter kulit.</p>
+</main>
+{% endblock %}
